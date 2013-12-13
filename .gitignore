@@ -1,6 +1,7 @@
 *.py[cod]
 
 secrets.py
+catsfed.txt
 
 .ropeproject/
 
