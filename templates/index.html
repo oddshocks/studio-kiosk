@@ -1,16 +1,27 @@
 <!doctype html>
-<title>Studio Kiosk</title>
+<head>
+    <link rel="stylesheet" href="static/main.css" />
+    <title>Studio Kiosk</title>
+</head>
 
-<h1>Latest Updates</h1>
+<body>
+<div class="tweets">
+    <h1>Band Status</h1>
+    <table>
+    {% for timeline in timelines %}
+        <tr><td><img src="{{ timeline[0]['user']['profile_image_url'] }}" /></td>
+            <td>{{ timeline[0]['text'] }}
+                <div style="color: #999">
+                {{ time.strftime('%A %H:%M:%S', time.strptime(timeline[0]['created_at'],'%a %b %d %H:%M:%S +0000 %Y')) }}
+                {% if timeline[0]['place'] %}
+                from {{ timeline[0]['place']['full_name'] }}
+                {% endif %}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
 
-<h2>Ashley</h2>
-<p>{{ twitter.statuses.user_timeline(screen_name="ashweedubz")[0]['text'] }}</p>
-
-<h2>David</h2>
-<p>{{ twitter.statuses.user_timeline(screen_name="oddshocks")[0]['text'] }}</p>
-
-<h2>Hayley</h2>
-<p>{{ twitter.statuses.user_timeline(screen_name="iamHAYYLOVE")[0]['text'] }}</p>
-
-<h2>Matt</h2>
-<p>{{ twitter.statuses.user_timeline(screen_name="mttalxndrgrrtt")[0]['text'] }}</p>
+</body>
+</html>

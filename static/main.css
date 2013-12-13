@@ -1,0 +1,13 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EEE;
+    font-family: sans-serif;
+}
+
+.tweets {
+    font-size: 1.2em;
+}

@@ -1,4 +1,5 @@
 import os
+import time
 
 from flask import Flask, render_template
 from twitter import *
@@ -19,7 +20,15 @@ def index():
     twitter = Twitter(auth=OAuth(
                 oauth_token, oauth_secret, CONSUMER_KEY, CONSUMER_SECRET))
 
-    return render_template("index.html", twitter=twitter)
+    # usernames to get tweets for
+    usernames = ["ashweedubz", "oddshocks", "iamHAYYLOVE", "mttalxndrgrrtt"]
+
+    timelines = []
+
+    for name in usernames:
+        timelines.append(twitter.statuses.user_timeline(screen_name=name))
+
+    return render_template("index.html", time=time, timelines=timelines)
 
 if __name__ == "__main__":
     app.run(debug=True)
