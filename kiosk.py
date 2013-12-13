@@ -1,3 +1,4 @@
+import datetime
 import os
 import time
 
@@ -28,7 +29,24 @@ def index():
     for name in usernames:
         timelines.append(twitter.statuses.user_timeline(screen_name=name))
 
-    return render_template("index.html", time=time, timelines=timelines)
+    catsfed = None
+    now = datetime.datetime.now()
+    with open('catsfed.txt') as f:
+        catsfed = datetime.datetime.strptime(f.readline(), '%Y-%m-%d %H:%M:%S.%f')
+    cats_last_fed = catsfed.strftime('%H:%M')
+    hours_since_cats_fed = str(((now - catsfed).seconds / 60 / 60)).format('%.1f')
+
+    return render_template("index.html", time=time, timelines=timelines,
+                            cats_last_fed=cats_last_fed,
+                            hours_since_cats_fed=hours_since_cats_fed)
+
+@app.route("/feedcats")
+def feedcats():
+
+    with open('catsfed.txt', 'w') as f:
+        f.write(str(datetime.datetime.now()))
+
+    return render_template("feedcats.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
