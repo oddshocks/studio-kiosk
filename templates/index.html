@@ -1,26 +1,16 @@
 <!doctype html>
 <title>Studio Kiosk</title>
 
-<!-- DAVID TWITTER -->
-<a class="twitter-timeline"  href="https://twitter.com/oddshocks"  data-widget-id="271331917494894592">Tweets by David</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<h1>Latest Updates</h1>
 
-</script>
+<h2>Ashley</h2>
+<p>{{ twitter.statuses.user_timeline(screen_name="ashweedubz")[0]['text'] }}</p>
 
-<!-- HAYLEY TWITTER -->
-<a class="twitter-timeline"  href="https://twitter.com/iamHAYYLOVE"  data-widget-id="271331917494894592">Tweets by Hayley</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<h2>David</h2>
+<p>{{ twitter.statuses.user_timeline(screen_name="oddshocks")[0]['text'] }}</p>
 
-</script>
+<h2>Hayley</h2>
+<p>{{ twitter.statuses.user_timeline(screen_name="iamHAYYLOVE")[0]['text'] }}</p>
 
-<!-- ASHLEY TWITTER -->
-<a class="twitter-timeline"  href="https://twitter.com/ashweedubz"  data-widget-id="271331917494894592">Tweets by Ashley</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-</script>
-
-<!-- MATT TWITTER -->
-<a class="twitter-timeline"  href="https://twitter.com/mttalxndrgrrtt"  data-widget-id="271331917494894592">Tweets by Matt</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-</script>
+<h2>Matt</h2>
+<p>{{ twitter.statuses.user_timeline(screen_name="mttalxndrgrrtt")[0]['text'] }}</p>
