@@ -6,5 +6,5 @@ app = Flask(__name__)
 def index():
     return "Hello, downstairs!"
 
-if __name == "__main__":
+if __name__ == "__main__":
     app.run()
