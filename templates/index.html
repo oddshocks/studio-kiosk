@@ -24,7 +24,13 @@
 <h1>Groupie Status</h1>
 
 <p>Our groupies were last fed at {{ cats_last_fed }}. That was
-    {{ hours_since_cats_fed }} hours ago.</p>
+    {{ hours_since_cats_fed }}
+    {% if hours_since_cats_fed == 1 %}
+    hour
+    {% else %}
+    hours
+    {% endif %}
+    ago.</p>
 
 <a href="/feedcats">Feed them</a>
 
