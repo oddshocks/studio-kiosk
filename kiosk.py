@@ -34,7 +34,7 @@ def index():
     with open('catsfed.txt') as f:
         catsfed = datetime.datetime.strptime(f.readline(), '%Y-%m-%d %H:%M:%S.%f')
     cats_last_fed = catsfed.strftime('%H:%M')
-    hours_since_cats_fed = str(((now - catsfed).seconds / 60 / 60)).format('%.1f')
+    hours_since_cats_fed = ('{0:.0f}').format(float((now - catsfed).seconds) / 60.0 / 60.0)
 
     return render_template("index.html", time=time, timelines=timelines,
                             cats_last_fed=cats_last_fed,
